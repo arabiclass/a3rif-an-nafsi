@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>أعرف عن نفسي | I Introduce Myself</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Noto+Naskh+Arabic:wght@600;700&family=Source+Sans+3:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#f4efe6;--card:#fffdf8;--ink:#24302c;--muted:#66756f;--line:#e4d9c6;--hero:#1f6f5b;--gold:#c49a3c;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"IBM Plex Sans Arabic","Source Sans 3",sans-serif;background:linear-gradient(180deg,#f7f3ea,#eee6d6);color:var(--ink);min-height:100vh;line-height:1.65}
+button,input{font-family:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:18px 16px 70px}
+.en{display:block;font-family:"Source Sans 3",sans-serif;color:var(--muted);font-size:.8em;direction:ltr;text-align:right}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.brand h1{font-size:1.15rem}
+.who{background:#fff;border:2px solid var(--gold);border-radius:999px;padding:6px 12px;font-weight:700}
+.screen{display:none}.screen.on{display:block}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:22px}
+h2{font-family:"Noto Naskh Arabic",serif;font-size:clamp(1.2rem,3vw,1.7rem)}
+.lead{color:var(--muted);margin:8px 0 14px}
+.btn{border:0;border-radius:14px;padding:12px 16px;font-weight:800;cursor:pointer}
+.p{background:var(--hero);color:#fff}.g{background:var(--gold);color:#2b2208}
+.x{background:#fff;border:2px solid var(--line)}
+.iconbtn{width:54px;height:54px;border-radius:16px;border:2px solid var(--line);background:#fff;font-size:1.25rem;cursor:pointer}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.pics{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;margin:12px 0}
+.pic{background:#fff;border:2px solid var(--line);border-radius:16px;padding:10px 8px;cursor:pointer;text-align:center;min-height:124px}
+.pic.on{border-color:var(--gold);box-shadow:0 0 0 3px #f1e3b4}
+.art{height:52px;display:grid;place-items:center;font-size:1.6rem}
+.flag{width:72px;height:42px;border-radius:4px;overflow:hidden;border:1px solid #ccc;display:block;margin:0 auto 6px}
+.nat-card{min-height:168px}
+.nat-card .art{height:auto;min-height:48px}
+.nat-en{display:block;direction:ltr;text-align:center;font-size:.72rem;color:#66756f;font-family:"Source Sans 3",sans-serif;margin-top:2px;font-weight:500}
+.nat-forms{display:block;font-size:.72rem;color:#7a5a12;margin-top:4px;line-height:1.35}
+input.line{width:100%;border:2px solid var(--line);border-radius:14px;padding:12px;font-size:1.05rem;background:#fff;margin-top:8px}
+.qhero{display:flex;gap:12px;align-items:center;background:#f7f1e3;border:2px dashed #d7c9a6;border-radius:18px;padding:12px;margin:12px 0}
+.mission{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;border:2px solid var(--line);border-radius:16px;padding:12px;margin:10px 0;cursor:pointer;background:#fff}
+.mission.lock{opacity:.4;cursor:not-allowed}
+.badge{width:44px;height:44px;border-radius:12px;background:#2b3c48;color:#fff;display:grid;place-items:center;font-weight:800}
+.bar{height:8px;background:#eadfcb;border-radius:99px;overflow:hidden;margin:8px 0 14px}
+.bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--hero),var(--gold))}
+.model{background:#eef6f2;border-right:5px solid var(--hero);border-radius:14px;padding:12px;margin:10px 0;font-family:"Noto Naskh Arabic",serif;font-size:1.15rem}
+.tiles{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.tile{background:#fff;border:2px solid var(--line);padding:8px 12px;border-radius:12px;cursor:pointer;font-weight:700}
+.slot{border-style:dashed;color:#99a59f}
+.phase{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.ph{padding:6px 10px;border-radius:999px;background:#eee;font-size:.8rem;font-weight:700}
+.ph.now{background:var(--hero);color:#fff}
+.you{background:#fff8e8;border:2px solid #e6d19a;border-radius:14px;padding:10px;margin-bottom:12px}
+.back{background:none;border:0;cursor:pointer;color:var(--muted);margin-bottom:10px;font-weight:700}
+footer{margin-top:20px;text-align:center;color:var(--muted);font-size:.8rem}
+.hint{font-size:.88rem;color:#7a5a12;margin:6px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <h1>أَعْرِفُ عَنْ نَفْسِي</h1>
+    <span class="en">I introduce myself · MSA</span>
+  </div>
+  <div class="who" id="who">المتعلّم</div>
+</header>
+
+<section id="s-name" class="screen on">
+  <div class="card">
+    <h2>ما اسْمُكَ؟<span class="en">What is your name?</span></h2>
+    <input class="line" id="nameIn" placeholder="صوفيا / Sophia" />
+    <h2 style="margin-top:18px;font-size:1.2rem">أَنْتَ أَمْ أَنْتِ؟<span class="en">Male or female? (for nationality form)</span></h2>
+    <div class="row" style="margin-top:8px">
+      <button class="pic" type="button" id="gM" onclick="setG('m')">أَنَا وَلَد<br><span class="en">Male</span></button>
+      <button class="pic" type="button" id="gF" onclick="setG('f')">أَنَا بِنْت<br><span class="en">Female</span></button>
+    </div>
+    <div class="row" style="margin-top:14px">
+      <button class="btn p" type="button" onclick="saveName()">التالي</button>
+    </div>
+  </div>
+</section>
+
+<section id="s-quest" class="screen">
+  <button class="back" type="button" onclick="go('s-name')">←</button>
+  <div class="card">
+    <div class="bar"><i id="qBar"></i></div>
+    <div class="qhero">
+      <div><h2 id="qTitle"></h2><span class="en" id="qEn"></span></div>
+      <button class="iconbtn" type="button" onclick="playQuestAudio()">🔊</button>
+    </div>
+    <p class="lead" id="qLead"></p>
+    <p class="hint" id="multiHint" style="display:none">يمكنك اختيار أكثر من صورة. / You may choose more than one.</p>
+    <input class="line" id="filter" placeholder="ابحث عن دولتك / search country" oninput="renderQuest()" style="display:none" />
+    <div class="pics" id="pics"></div>
+    <input class="line" id="custom" placeholder="أو اكتب إجابة إضافية / or type another answer" />
+    <div class="row" style="margin-top:12px"><button class="btn p" type="button" onclick="saveQuest()">التالي</button></div>
+  </div>
+</section>
+
+<section id="s-map" class="screen">
+  <div class="card">
+    <h2>مراحل <span id="mapName"></span></h2>
+    <div class="you" id="you"></div>
+    <div id="map"></div>
+  </div>
+</section>
+
+<section id="s-train" class="screen">
+  <button class="back" type="button" onclick="go('s-map')">←</button>
+  <div class="card">
+    <div class="bar"><i id="tBar"></i></div>
+    <h2 id="tTitle"></h2>
+    <div class="phase">
+      <span class="ph" id="ph1">1. أَسْتَمِعُ Listen</span>
+      <span class="ph" id="ph2">2. أُكَرِّرُ Repeat</span>
+      <span class="ph" id="ph3">3. أُسَجِّلُ Record</span>
+    </div>
+    <div class="qhero">
+      <div>
+        <div id="tQ" style="font-weight:800;font-size:1.15rem"></div>
+        <span class="en" id="tEn"></span>
+      </div>
+      <button class="iconbtn" type="button" onclick="playModel()">🔊</button>
+    </div>
+    <div class="model" id="tModel"></div>
+    <p class="en" id="tModelEn"></p>
+    <div class="tiles" id="target"></div>
+    <div class="tiles" id="pool"></div>
+    <div class="row">
+      <button class="btn g" type="button" onclick="playModel()">▶ اِسْمَعِ الجُمْلَةَ</button>
+      <button class="btn p" type="button" id="recBtn" onclick="startRec()" disabled>🎤 سَجِّلْ</button>
+      <button class="btn x" type="button" onclick="stopRec()">إيقاف</button>
+      <button class="btn x" type="button" onclick="nextItem()">التالي</button>
+    </div>
+    <p class="lead" id="status">اسمع الجملة المشكولة، ثم سجّل صوتك.</p>
+    <div id="feedback" class="you" style="display:none"></div>
+    <audio id="playback" controls style="width:100%;margin-top:10px;display:none"></audio>
+  </div>
+</section>
+<footer>أعرف عن نفسي · فصحى مشكولة</footer>
+</div>
+
+<script>
+const NATIONS = [
+  {ar:"اسْكُتْلَنْدا",plain:"اسكتلندا",en:"Scotland",m:"اسْكُتْلَنْدِيٌّ",f:"اسْكُتْلَنْدِيَّةٌ",c:["#005EB8","#fff","#005EB8"]},
+  {ar:"إِنْجِلْتِرا",plain:"إنجلترا",en:"England",m:"إِنْجِليزِيٌّ",f:"إِنْجِليزِيَّةٌ",c:["#fff","#C8102E","#fff"]},
+  {ar:"وِيلْز",plain:"ويلز",en:"Wales",m:"وِيلْزِيٌّ",f:"وِيلْزِيَّةٌ",c:["#00AB4E","#fff","#E31B23"]},
+  {ar:"أَيْرِلَنْدا",plain:"أيرلندا",en:"Ireland",m:"أَيْرِلَنْدِيٌّ",f:"أَيْرِلَنْدِيَّةٌ",c:["#169B62","#fff","#FF883E"]},
+  {ar:"بِريطانْيا",plain:"بريطانيا",en:"Britain",m:"بِريطانِيٌّ",f:"بِريطانِيَّةٌ",c:["#012169","#C8102E","#fff"]},
+  {ar:"أَمْريكا",plain:"أمريكا",en:"USA",m:"أَمْريكِيٌّ",f:"أَمْريكِيَّةٌ",c:["#B22234","#fff","#3C3B6E"]},
+  {ar:"كَنَدا",plain:"كندا",en:"Canada",m:"كَنَدِيٌّ",f:"كَنَدِيَّةٌ",c:["#FF0000","#fff","#FF0000"]},
+  {ar:"أُسْتُرالْيا",plain:"أستراليا",en:"Australia",m:"أُسْتُرالِيٌّ",f:"أُسْتُرالِيَّةٌ",c:["#00008B","#fff","#E4002B"]},
+  {ar:"نيوزيلَنْدا",plain:"نيوزيلندا",en:"New Zealand",m:"نيوزيلَنْدِيٌّ",f:"نيوزيلَنْدِيَّةٌ",c:["#00247D","#fff","#CC142B"]},
+  {ar:"الهِنْد",plain:"الهند",en:"India",m:"هِنْدِيٌّ",f:"هِنْدِيَّةٌ",c:["#FF9933","#fff","#138808"]},
+  {ar:"باكِسْتان",plain:"باكستان",en:"Pakistan",m:"باكِسْتانِيٌّ",f:"باكِسْتانِيَّةٌ",c:["#01411C","#fff","#01411C"]},
+  {ar:"بَنْغلاديش",plain:"بنغلاديش",en:"Bangladesh",m:"بَنْغلاديشِيٌّ",f:"بَنْغلاديشِيَّةٌ",c:["#006A4E","#F42A41","#006A4E"]},
+  {ar:"الفِلِبّين",plain:"الفلبين",en:"Philippines",m:"فِلِبّينِيٌّ",f:"فِلِبّينِيَّةٌ",c:["#0038A8","#CE1126","#FCD116"]},
+  {ar:"إِنْدونيسْيا",plain:"إندونيسيا",en:"Indonesia",m:"إِنْدونيسِيٌّ",f:"إِنْدونيسِيَّةٌ",c:["#CE1126","#fff","#CE1126"]},
+  {ar:"ماليزْيا",plain:"ماليزيا",en:"Malaysia",m:"ماليزِيٌّ",f:"ماليزِيَّةٌ",c:["#CC0001","#fff","#010066"]},
+  {ar:"الصّين",plain:"الصين",en:"China",m:"صينيٌّ",f:"صينيَّةٌ",c:["#DE2910","#FFDE00","#DE2910"]},
+  {ar:"اليابان",plain:"اليابان",en:"Japan",m:"يابانِيٌّ",f:"يابانِيَّةٌ",c:["#fff","#BC002D","#fff"]},
+  {ar:"كورْيا الجَنوبِيَّة",plain:"كوريا الجنوبية",en:"South Korea",m:"كورِيٌّ",f:"كورِيَّةٌ",c:["#fff","#CD2E3A","#0047A0"]},
+  {ar:"نيجيرْيا",plain:"نيجيريا",en:"Nigeria",m:"نيجيرِيٌّ",f:"نيجيرِيَّةٌ",c:["#008751","#fff","#008751"]},
+  {ar:"كينْيا",plain:"كينيا",en:"Kenya",m:"كينِيٌّ",f:"كينِيَّةٌ",c:["#000","#BB0000","#006600"]},
+  {ar:"جَنوبُ أَفْريقْيا",plain:"جنوب أفريقيا",en:"South Africa",m:"جَنوبُ أَفْريقِيٍّ",f:"جَنوبُ أَفْريقِيَّةٍ",c:["#007A4D","#FFB612","#DE3831"]},
+  {ar:"غانَا",plain:"غانا",en:"Ghana",m:"غانِيٌّ",f:"غانِيَّةٌ",c:["#CE1126","#FCD116","#006B3F"]},
+  {ar:"فَرَنْسا",plain:"فرنسا",en:"France",m:"فَرَنْسِيٌّ",f:"فَرَنْسِيَّةٌ",c:["#0055A4","#fff","#EF4135"]},
+  {ar:"أَلْمانْيا",plain:"ألمانيا",en:"Germany",m:"أَلْمانِيٌّ",f:"أَلْمانِيَّةٌ",c:["#000","#DD0000","#FFCE00"]},
+  {ar:"إِسْبانْيا",plain:"إسبانيا",en:"Spain",m:"إِسْبانِيٌّ",f:"إِسْبانِيَّةٌ",c:["#AA151B","#F1BF00","#AA151B"]},
+  {ar:"إيطالْيا",plain:"إيطاليا",en:"Italy",m:"إيطالِيٌّ",f:"إيطالِيَّةٌ",c:["#009246","#fff","#CE2B37"]},
+  {ar:"هولَنْدا",plain:"هولندا",en:"Netherlands",m:"هولَنْدِيٌّ",f:"هولَنْدِيَّةٌ",c:["#AE1C28","#fff","#21468B"]},
+  {ar:"السُّويد",plain:"السويد",en:"Sweden",m:"سُويدِيٌّ",f:"سُويدِيَّةٌ",c:["#006AA7","#FECC00","#006AA7"]},
+  {ar:"النُّرويج",plain:"النرويج",en:"Norway",m:"نُرويجِيٌّ",f:"نُرويجِيَّةٌ",c:["#BA0C2F","#fff","#00205B"]},
+  {ar:"روسْيا",plain:"روسيا",en:"Russia",m:"روسِيٌّ",f:"روسِيَّةٌ",c:["#fff","#0039A6","#D52B1E"]},
+  {ar:"تُرْكِيا",plain:"تركيا",en:"Turkey",m:"تُرْكِيٌّ",f:"تُرْكِيَّةٌ",c:["#E30A17","#E30A17","#E30A17"]},
+  {ar:"البَرازيل",plain:"البرازيل",en:"Brazil",m:"بَرازيلِيٌّ",f:"بَرازيلِيَّةٌ",c:["#009C3B","#FFDF00","#002776"]},
+  {ar:"المِكْسيك",plain:"المكسيك",en:"Mexico",m:"مِكْسيكِيٌّ",f:"مِكْسيكِيَّةٌ",c:["#006847","#fff","#CE1126"]},
+  {ar:"بولندا",plain:"بولندا",en:"Poland",m:"بولندي",f:"بولندية",c:["#fff","#fff","#DC143C"]},
+  {ar:"البرتغال",plain:"البرتغال",en:"Portugal",m:"برتغالي",f:"برتغالية",c:["#006600","#FF0000","#006600"]},
+  {ar:"اليونان",plain:"اليونان",en:"Greece",m:"يوناني",f:"يونانية",c:["#0D5EAF","#fff","#0D5EAF"]},
+  {ar:"بلجيكا",plain:"بلجيكا",en:"Belgium",m:"بلجيكي",f:"بلجيكية",c:["#000","#FAE042","#ED2939"]},
+  {ar:"تايلاند",plain:"تايلاند",en:"Thailand",m:"تايلاندي",f:"تايلاندية",c:["#A51931","#F4F5F8","#2D2A4A"]},
+  {ar:"الأرجنتين",plain:"الأرجنتين",en:"Argentina",m:"أرجنتيني",f:"أرجنتينية",c:["#74ACDF","#fff","#74ACDF"]},
+  {ar:"إثيوبيا",plain:"إثيوبيا",en:"Ethiopia",m:"إثيوبي",f:"إثيوبية",c:["#078930","#FCDD09","#DA121A"]},
+  {ar:"سويسرا",plain:"سويسرا",en:"Switzerland",m:"سويسري",f:"سويسرية",c:["#FF0000","#fff","#FF0000"]},
+  {ar:"النمسا",plain:"النمسا",en:"Austria",m:"نمساوي",f:"نمساوية",c:["#ED2939","#fff","#ED2939"]},
+  {ar:"الدنمارك",plain:"الدنمارك",en:"Denmark",m:"دنماركي",f:"دنماركية",c:["#C60C30","#fff","#C60C30"]},
+  {ar:"فنلندا",plain:"فنلندا",en:"Finland",m:"فنلندي",f:"فنلندية",c:["#003580","#fff","#003580"]},
+  {ar:"أوكرانيا",plain:"أوكرانيا",en:"Ukraine",m:"أوكراني",f:"أوكرانية",c:["#005BBB","#FFD500","#005BBB"]},
+  {ar:"رومانيا",plain:"رومانيا",en:"Romania",m:"روماني",f:"رومانية",c:["#002B7F","#FCD116","#CE1126"]},
+  {ar:"المجر",plain:"المجر",en:"Hungary",m:"مجري",f:"مجرية",c:["#CE2939","#fff","#477050"]},
+  {ar:"التشيك",plain:"التشيك",en:"Czechia",m:"تشيكي",f:"تشيكية",c:["#D7141A","#fff","#11457E"]},
+  {ar:"كولومبيا",plain:"كولومبيا",en:"Colombia",m:"كولومبي",f:"كولومبية",c:["#FCD116","#003893","#CE1126"]},
+  {ar:"تشيلي",plain:"تشيلي",en:"Chile",m:"تشيلي",f:"تشيلية",c:["#D52B1E","#fff","#0039A6"]},
+  {ar:"فيتنام",plain:"فيتنام",en:"Vietnam",m:"فيتنامي",f:"فيتنامية",c:["#DA251D","#FFCD00","#DA251D"]},
+  {ar:"سنغافورة",plain:"سنغافورة",en:"Singapore",m:"سنغافوري",f:"سنغافورية",c:["#EF3340","#fff","#EF3340"]},
+  {ar:"سريلانكا",plain:"سريلانكا",en:"Sri Lanka",m:"سريلانكي",f:"سريلانكية",c:["#FFB700","#8D153A","#00534E"]},
+  {ar:"نيبال",plain:"نيبال",en:"Nepal",m:"نيبالي",f:"نيبالية",c:["#DC143C","#003893","#DC143C"]},
+  {ar:"تنزانيا",plain:"تنزانيا",en:"Tanzania",m:"تنزاني",f:"تنزانية",c:["#1EB53A","#00A3DD","#FCD116"]},
+  {ar:"أوغندا",plain:"أوغندا",en:"Uganda",m:"أوغندي",f:"أوغندية",c:["#000","#FCDC04","#D90000"]},
+  {ar:"كازاخستان",plain:"كازاخستان",en:"Kazakhstan",m:"كازاخستاني",f:"كازاخستانية",c:["#00AFCA","#FEC50C","#00AFCA"]},
+  {ar:"بيرو",plain:"بيرو",en:"Peru",m:"بيروي",f:"بيروية",c:["#D91023","#fff","#D91023"]},
+  {ar:"فنزويلا",plain:"فنزويلا",en:"Venezuela",m:"فنزويلي",f:"فنزويلية",c:["#FFCC00","#00247D","#CF142B"]},
+  {ar:"الإكوادور",plain:"الإكوادور",en:"Ecuador",m:"إكوادوري",f:"إكوادورية",c:["#FFD100","#0072CE","#EF3340"]},
+  {ar:"بوليفيا",plain:"بوليفيا",en:"Bolivia",m:"بوليفي",f:"بوليفية",c:["#D52B1E","#F9E300","#007934"]},
+  {ar:"باراغواي",plain:"باراغواي",en:"Paraguay",m:"باراغوايي",f:"باراغوايية",c:["#D52B1E","#fff","#0038A8"]},
+  {ar:"أوروغواي",plain:"أوروغواي",en:"Uruguay",m:"أوروغوايي",f:"أوروغوايية",c:["#001489","#fff","#001489"]},
+  {ar:"بنما",plain:"بنما",en:"Panama",m:"بنمي",f:"بنمية",c:["#DA121A","#fff","#072357"]},
+  {ar:"كوستاريكا",plain:"كوستاريكا",en:"Costa Rica",m:"كوستاريكي",f:"كوستاريكية",c:["#002B7F","#fff","#CE1126"]},
+  {ar:"نيكاراغوا",plain:"نيكاراغوا",en:"Nicaragua",m:"نيكاراغوي",f:"نيكاراغوية",c:["#0067C6","#fff","#0067C6"]},
+  {ar:"هندوراس",plain:"هندوراس",en:"Honduras",m:"هندوراسي",f:"هندوراسية",c:["#0073CF","#fff","#0073CF"]},
+  {ar:"السلفادور",plain:"السلفادور",en:"El Salvador",m:"سلفادوري",f:"سلفادورية",c:["#0047AB","#fff","#0047AB"]},
+  {ar:"غواتيمالا",plain:"غواتيمالا",en:"Guatemala",m:"غواتيمالي",f:"غواتيمالية",c:["#4997D0","#fff","#4997D0"]},
+  {ar:"كوبا",plain:"كوبا",en:"Cuba",m:"كوبي",f:"كوبية",c:["#002A8F","#fff","#CF142B"]},
+  {ar:"الدومينيكان",plain:"الدومينيكان",en:"Dominican Republic",m:"دومينيكاني",f:"دومينيكانية",c:["#002D62","#fff","#CE1126"]}
+];
+
+const WORDS = {
+  "القراءة":"القراءة","السباحة":"السباحة","الموسيقى":"الموسيقى",
+  "كرة القدم":"كرة القدم","الألعاب":"الألعاب","السفر":"السفر",
+  "الكسل":"الكسل","الانتظار":"الانتظار","الضوضاء":"الضوضاء","الامتحانات":"الامتحانات",
+  "الاستيقاظ مبكرًا":"الاستيقاظ مبكرًا","الزحمة":"الزحمة","الطقس الحار":"الطقس الحار",
+  "الواجبات الكثيرة":"الواجبات الكثيرة","الجلوس طويلاً":"الجلوس طويلا","الفوضى":"الفوضى",
+  "الكذب":"الكذب","الطعام الحار":"الطعام الحار",
+  "الرسم":"الرسم","التصوير":"التصوير","البرمجة":"البرمجة","الجري":"الجري",
+  "ركوب الدراجة":"ركوب الدراجة",
+  "الرياضيات":"الرياضيات","العلوم":"العلوم","الإنجليزية":"الإنجليزية","العربية":"العربية",
+  "التاريخ":"التاريخ","الفنون":"الفنون","الجغرافيا":"الجغرافيا","الحاسوب":"الحاسوب",
+  "التربية الرياضية":"التربية الرياضية",
+  "الأزرق":"الأزرق","الأخضر":"الأخضر","الأحمر":"الأحمر","الأسود":"الأسود","الأبيض":"الأبيض",
+  "البنفسجي":"البنفسجي","الوردي":"الوردي","البرتقالي":"البرتقالي","الأصفر":"الأصفر",
+  "البني":"البني","الرمادي":"الرمادي","الذهبي":"الذهبي","التركوازي":"التركوازي","الكحلي":"الكحلي"
+};
+function vocal(w){ return WORDS[w] || w; }
+
+function joinWa(arr){
+  const v = arr.map(vocal);
+  if(!v.length) return "";
+  if(v.length===1) return v[0];
+  if(v.length===2) return v[0]+" و "+v[1];
+  return v.slice(0,-1).join(" و ")+" و "+v[v.length-1];
+}
+function asList(val){
+  if(Array.isArray(val)) return val.filter(Boolean);
+  if(!val) return [];
+  return String(val).split("،").map(function(s){return s.trim();}).filter(Boolean);
+}
+function flagHTML(c){
+  return '<span class="flag"><span style="display:block;height:33.33%;background:'+c[0]+'"></span><span style="display:block;height:33.33%;background:'+c[1]+'"></span><span style="display:block;height:33.34%;background:'+c[2]+'"></span></span>';
+}
+function colorDot(hex){return '<span style="display:inline-block;width:46px;height:46px;border-radius:50%;background:'+hex+';border:2px solid #24302c"></span>'}
+function numBadge(n){return '<span style="display:inline-grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#1f6f5b;color:#fff;font-weight:800">'+n+'</span>'}
+
+const Q = [
+  {key:"age", title:"كَمْ عُمْرُكَ؟", say:"كَمْ عُمْرُكَ؟", en:"How old are you?",
+    options:[11,12,13,14,15].map(function(n){return {v:String(n), html:numBadge(n)};})},
+  {key:"nation", title:"مِنْ أَيْنَ أَنْتَ؟", say:"من أين أنت؟", en:"Where are you from?", type:"nation"},
+  {key:"grade", title:"في أَيِّ صَفٍّ أَنْتَ؟", say:"في أي صف أنت؟", en:"What grade?",
+    options:[
+      {v:"السادس",html:"🏫",en:"Year 6"},
+      {v:"السابع",html:"🏫",en:"Year 7"},
+      {v:"الثامن",html:"🏫",en:"Year 8"},
+      {v:"التاسع",html:"🏫",en:"Year 9"},
+      {v:"العاشر",html:"🏫",en:"Year 10"}
+    ]},
+  {key:"color", title:"ما لَوْنُكَ المُفَضَّلُ؟", say:"ما لونك المفضل؟", en:"Favourite colour?", multi:true,
+    options:[
+      {v:"الأزرق",html:colorDot("#2b6cb0")},{v:"الأخضر",html:colorDot("#1f6f5b")},
+      {v:"الأحمر",html:colorDot("#b33")},{v:"الأسود",html:colorDot("#222")},
+      {v:"الأبيض",html:colorDot("#f7f7f7")},{v:"البنفسجي",html:colorDot("#6b3fa0")},
+      {v:"الوردي",html:colorDot("#e86b9a")},{v:"البرتقالي",html:colorDot("#e67e22")},
+      {v:"الأصفر",html:colorDot("#f1c40f")},{v:"البني",html:colorDot("#8b5a2b")},
+      {v:"الرمادي",html:colorDot("#7f8c8d")},{v:"الذهبي",html:colorDot("#c49a3c")},
+      {v:"التركوازي",html:colorDot("#1abc9c")},{v:"الكحلي",html:colorDot("#1b3a5f")}
+    ]},
+  {key:"like", title:"ماذا تُحِبُّ؟", say:"ماذا تُحِبُّ؟", en:"What do you like?", multi:true,
+    options:[
+      {v:"القراءة",html:"📖",en:"reading"},{v:"السباحة",html:"🏊",en:"swimming"},
+      {v:"الموسيقى",html:"🎵",en:"music"},{v:"كرة القدم",html:"⚽",en:"football"},
+      {v:"الألعاب",html:"🎮",en:"games"},{v:"السفر",html:"✈️",en:"travel"}
+    ]},
+  {key:"dislike", title:"ماذا لا تُحِبُّ؟", say:"ماذا لا تحب؟", en:"What don’t you like?", multi:true,
+    options:[
+      {v:"الكسل",html:"😴",en:"laziness"},{v:"الانتظار",html:"⏳",en:"waiting"},{v:"الضوضاء",html:"🔊",en:"noise"},
+      {v:"الامتحانات",html:"📝",en:"exams"},{v:"الاستيقاظ مبكرًا",html:"⏰",en:"waking up early"},{v:"الزحمة",html:"🚗",en:"traffic"},
+      {v:"الطقس الحار",html:"☀️",en:"hot weather"},{v:"الواجبات الكثيرة",html:"📚",en:"too much homework"},{v:"الجلوس طويلاً",html:"🪑",en:"sitting long"},
+      {v:"الفوضى",html:"🧹",en:"mess"},{v:"الكذب",html:"🚫",en:"lying"},{v:"الطعام الحار",html:"🌶️",en:"spicy food"}
+    ]},
+  {key:"hobby", title:"ما هِوايَتُكَ المُفَضَّلَةُ؟", say:"ما هِوايَاتُكَ المُفَضَّلَةُ؟", en:"Favourite hobbies?", multi:true,
+    options:[
+      {v:"الرسم",html:"🎨",en:"drawing"},{v:"كرة القدم",html:"⚽",en:"football"},{v:"القراءة",html:"📚",en:"reading"},
+      {v:"التصوير",html:"📷",en:"photography"},{v:"البرمجة",html:"💻",en:"coding"},{v:"الجري",html:"🏃",en:"running"},
+      {v:"ركوب الدراجة",html:"🚲",en:"cycling"},{v:"السباحة",html:"🏊",en:"swimming"},{v:"الطبخ",html:"🍳",en:"cooking"},
+      {v:"الشطرنج",html:"♟️",en:"chess"},{v:"الكتابة",html:"✍️",en:"writing"},{v:"مشاهدة الأفلام",html:"🎬",en:"watching films"},
+      {v:"كرة السلة",html:"🏀",en:"basketball"},{v:"التنس",html:"🎾",en:"tennis"},{v:"الغناء",html:"🎤",en:"singing"},
+      {v:"العزف",html:"🎹",en:"playing music"},{v:"التطوع",html:"🤝",en:"volunteering"},{v:"ركوب الخيل",html:"🐎",en:"horse riding"}
+    ]},
+  {key:"subject", title:"ما موادُّكَ المُفَضَّلَةُ؟", say:"ما موادك المفضلة؟", en:"Favourite subjects?", multi:true,
+    options:[
+      {v:"الرياضيات",html:"➕",en:"maths"},{v:"العلوم",html:"🔬",en:"science"},{v:"الإنجليزية",html:"🔤",en:"English"},
+      {v:"العربية",html:"ع",en:"Arabic"},{v:"التاريخ",html:"🏺",en:"history"},{v:"الفنون",html:"🎭",en:"art"},
+      {v:"الجغرافيا",html:"🌍",en:"geography"},{v:"الحاسوب",html:"💻",en:"ICT"},{v:"التربية الرياضية",html:"🏅",en:"PE"}
+    ]},
+  {key:"family", title:"حَدِّثْني عَنْ عائِلَتِكَ.", say:"حَدِّثْني عَنْ عائِلَتِكَ.", en:"Your family",
+    options:[{v:"أبي وأمي",html:"👨‍👩‍👧"},{v:"أبي وأمي وأخي",html:"👨‍👩‍👧‍👦"},{v:"أبي وأمي وأختي",html:"👨‍👩‍👧"},{v:"عائلتي كبيرة",html:"👨‍👩‍👧‍👧"}]}
+];
+
+const STAGES = [
+  {id:"listen", title:"أَسْتَمِعُ"},
+  {id:"repeat", title:"أُكَرِّرُ"},
+  {id:"answer", title:"أُجيبُ"},
+  {id:"build", title:"أَبْني الجُمْلَةَ"},
+  {id:"keys", title:"كَلِماتٌ مِفْتاحِيَّةٌ"},
+  {id:"free", title:"أُقَدِّمُ نَفْسي"}
+];
+
+let profile = JSON.parse(localStorage.getItem("learner4")||"null") || {name:"",gender:"f",answers:{},unlocked:1,xp:0,done:{}};
+if(!profile.answers) profile.answers={};
+if(!profile.done) profile.done={};
+let qi=0, selected=[], selectedId="", si=0, ti=0, heard=false, rec, chunks=[];
+
+function save(){
+  localStorage.setItem("learner4", JSON.stringify(profile));
+  document.getElementById("who").textContent = profile.name || "المتعلّم";
+}
+function go(id){
+  document.querySelectorAll(".screen").forEach(function(s){s.classList.remove("on")});
+  document.getElementById(id).classList.add("on");
+  if(id==="s-map") renderMap();
+  if(id==="s-quest") renderQuest();
+}
+function setG(g){
+  profile.gender=g;
+  document.getElementById("gM").className="pic"+(g==="m"?" on":"");
+  document.getElementById("gF").className="pic"+(g==="f"?" on":"");
+}
+function nationObj(){
+  const name = profile.answers.nation;
+  return NATIONS.filter(function(n){return n.plain===name || n.ar===name;})[0] || {ar:name||"",plain:name||"",m:name||"",f:name||""};
+}
+function natWord(){ const n=nationObj(); return profile.gender==="m"?n.m:n.f; }
+function countryWord(){ const n=nationObj(); return n.ar || profile.answers.nation || ""; }
+
+function speakNat(){
+  const n=nationObj();
+  const raw = profile.gender==="m"?n.m:n.f;
+  return String(raw||"").replace(/[ًٌٍَُِّْ]/g,"");
+}
+function speakCountry(){
+  return String(nationObj().plain || profile.answers.nation || "").replace(/[ًٌٍَُِّْ]/g,"");
+}
+
+function lines(){
+  const a=profile.answers, name=profile.name;
+  const likes=asList(a.like), dis=asList(a.dislike), hob=asList(a.hobby);
+  const cols=asList(a.color), subs=asList(a.subject);
+  const likeS = likes.length ? "أحب "+joinWa(likes)+"." : "أحب القراءة.";
+  const disS  = dis.length ? "لا أحب "+joinWa(dis)+"." : "لا أحب الكسل.";
+  const hobS  = hob.length>1 ? "هواياتي المفضلة هي "+joinWa(hob)+"."
+              : hob.length===1 ? "هوايتي المفضلة هي "+vocal(hob[0])+"."
+              : "هوايتي المفضلة هي الرسم.";
+  const colS  = cols.length>1 ? "ألواني المفضلة هي "+joinWa(cols)+"."
+              : "لوني المفضل "+vocal(cols[0]||"الأزرق")+".";
+  const subS  = subs.length>1 ? "موادي المفضلة هي "+joinWa(subs)+"."
+              : "مادتي المفضلة "+vocal(subs[0]||"الرياضيات")+".";
+  const famMap={"أبي وأمي":"أبي وأمي","أبي وأمي وأخي":"أبي وأمي وأخي","أبي وأمي وأختي":"أبي وأمي وأختي","عائلتي كبيرة":"عائلتي كبيرة"};
+  return [
+    {q:"ما اسمك؟", qEn:"What is your name?", ar:"اسمي "+name+".", en:"My name is "+name+".", words:["اسمي",name], keys:["اسمي"]},
+    {q:"كم عمرك؟", qEn:"How old are you?", ar:"عمري "+a.age+" عاما.", en:"I am "+a.age+" years old.", words:["عمري",String(a.age),"عاما"], keys:["عمري"]},
+    {q:"من أين أنت؟", qEn:"Where are you from?", ar:"أنا من "+speakCountry()+" وجنسيتي "+speakNat()+".", en:"I am from "+(nationObj().en||a.nation)+".", words:["أنا","من",speakCountry(),"وجنسيتي",speakNat()], keys:["من","جنسيتي"]},
+    {q:"أين تعيش؟", qEn:"Where do you live?", ar:"أعيش في دبي.", en:"I live in Dubai.", words:["أعيش","في","دبي"], keys:["أعيش"]},
+    {q:"في أي صف أنت؟", qEn:"What grade?", ar:"أنا في الصف "+a.grade+".", en:"I am in grade "+a.grade+".", words:["أنا","في","الصف",a.grade], keys:["الصف"]},
+    {q:"ما لونك المفضل؟", qEn:"Favourite colour?", ar:colS, en:"My colours: "+cols.join(", "), words:["لوني"].concat(cols), keys:["لوني"]},
+    {q:"ماذا تحب؟", qEn:"What do you like?", ar:likeS, en:"I like: "+likes.join(", "), words:["أحب"].concat(likes), keys:["أحب"]},
+    {q:"ماذا لا تحب؟", qEn:"What don’t you like?", ar:disS, en:"I do not like: "+dis.join(", "), words:["لا","أحب"].concat(dis), keys:["لا أحب"]},
+    {q:"ما هواياتك؟", qEn:"What are your hobbies?", ar:hobS, en:"My hobbies are: "+hob.join(", "), words:["هواياتي","هي"].concat(hob), keys:["هواياتي"]},
+    {q:"ما موادك المفضلة؟", qEn:"Favourite subjects?", ar:subS, en:"My subjects: "+subs.join(", "), words:["موادي"].concat(subs), keys:["موادي"]},
+    {q:"حدثني عن عائلتك.", qEn:"Your family", ar:"عائلتي "+(famMap[a.family]||a.family)+".", en:"My family: "+a.family+".", words:["عائلتي",a.family], keys:["عائلتي"]}
+  ];
+}
+function full(){
+  const L=lines();
+  return {
+    q:"قدم نفسك", qEn:"Introduce yourself",
+    ar:"السلام عليكم. "+L.map(function(x){return x.ar.replace(/\.$/,"");}).join(". ")+".",
+    en:"A full introduction using your own answers.",
+    words:[], keys:[]
+  };
+}
+
+const Npath = "audio/n/";
+const CLIP = {
+  "ما اسمك؟":"q_name.mp3","كم عمرك؟":"q_age.mp3","من أين أنت؟":"q_from.mp3",
+  "أين تعيش؟":"q_live.mp3","في أي صف أنت؟":"q_grade.mp3","ما لونك المفضل؟":"q_color.mp3",
+  "ماذا تحب؟":"q_like.mp3","ماذا لا تحب؟":"q_dislike.mp3","ما هواياتك؟":"q_hobby.mp3",
+  "ما موادك المفضلة؟":"q_subject.mp3","حدثني عن عائلتك.":"q_family.mp3",
+  "اسمي":"w_ismi.mp3","عمري":"w_umri.mp3","عاما":"w_aaman.mp3",
+  "أحب":"w_uhibbu.mp3","لا أحب":"w_la_uhibbu.mp3","و":"w_wa.mp3",
+  "هواياتي المفضلة هي":"w_hobbies.mp3","موادي المفضلة هي":"w_subjects.mp3",
+  "ألواني المفضلة هي":"w_colors.mp3","أسكن في":"w_live.mp3","أنا في الصف":"w_grade.mp3",
+  "لوني المفضل":"w_color.mp3","عائلتي":"w_family.mp3","السلام عليكم":"w_salam.mp3",
+  "أنا من":"w_ana_min.mp3","وجنسيتي":"w_jinsiya.mp3",
+  "11":"age_11.mp3","12":"age_12.mp3","13":"age_13.mp3","14":"age_14.mp3","15":"age_15.mp3","16":"age_16.mp3","17":"age_17.mp3","18":"age_18.mp3",
+  "السادس":"g_6.mp3","السابع":"g_7.mp3","الثامن":"g_8.mp3","التاسع":"g_9.mp3","العاشر":"g_10.mp3",
+  "القراءة":"w_reading.mp3","السباحة":"w_swim.mp3","الموسيقى":"w_music.mp3",
+  "كرة القدم":"w_football.mp3","الرسم":"w_draw.mp3","ركوب الدراجة":"w_bike.mp3",
+  "الرياضيات":"w_math.mp3","العلوم":"w_sci.mp3","العربية":"w_arabic.mp3","الإنجليزية":"w_english.mp3",
+  "الأزرق":"c_blue.mp3","الأخضر":"c_green.mp3","الأحمر":"c_red.mp3",
+  "الأسود":"c_black.mp3","الأبيض":"c_white.mp3","البنفسجي":"c_purple.mp3",
+  "الوردي":"c_pink.mp3","البرتقالي":"c_orange.mp3","الأصفر":"c_yellow.mp3",
+  "البني":"c_brown.mp3","الرمادي":"c_gray.mp3","الذهبي":"c_gold.mp3",
+  "التركوازي":"c_teal.mp3","الكحلي":"c_navy.mp3",
+  "الكسل":"d_lazy.mp3","الامتحانات":"d_exams.mp3","الانتظار":"d_wait.mp3",
+  "الضوضاء":"d_noise.mp3","الاستيقاظ مبكرًا":"d_early.mp3","الزحمة":"d_traffic.mp3",
+  "الطقس الحار":"d_hotweather.mp3","الواجبات الكثيرة":"d_homework.mp3",
+  "الجلوس طويلاً":"d_sitting.mp3","الفوضى":"d_mess.mp3","الكذب":"d_lie.mp3","الطعام الحار":"d_spicy.mp3",
+  "الألعاب":"w_games.mp3","السفر":"w_travel.mp3","التصوير":"w_photo.mp3",
+  "البرمجة":"w_code.mp3","الجري":"w_run.mp3",
+  "التاريخ":"s_hist.mp3","الفنون":"s_art.mp3","الجغرافيا":"s_geo.mp3",
+  "الحاسوب":"s_it.mp3","التربية الرياضية":"s_pe.mp3",
+  "دبي":"city_dubai.mp3","لندن":"city_london.mp3","أبوظبي":"city_abudhabi.mp3",
+  "الشارقة":"city_sharjah.mp3","غلاسكو":"city_glasgow.mp3","إدنبرة":"city_edinburgh.mp3",
+  "نيويورك":"city_ny.mp3","تورونتو":"city_toronto.mp3","مومباي":"city_mumbai.mp3","مانيلا":"city_manila.mp3",
+  "أبي وأمي":"fam_parents.mp3","أبي وأمي وأخي":"fam_brother.mp3",
+  "أبي وأمي وأختي":"fam_sister.mp3","عائلتي كبيرة":"fam_big.mp3",
+  "هوايتي المفضلة هي":"w_hobby_one.mp3","مادتي المفضلة":"w_subject_one.mp3",
+  "الطبخ":"h_cook.mp3","الشطرنج":"h_chess.mp3","الكتابة":"h_write.mp3",
+  "مشاهدة الأفلام":"h_films.mp3","كرة السلة":"h_basket.mp3","التنس":"h_tennis.mp3",
+  "الغناء":"h_sing.mp3","العزف":"h_piano.mp3","التطوع":"h_volunteer.mp3","ركوب الخيل":"h_horse.mp3"
+};
+const NAT_ID = {
+  "اسكتلندا":"scotland","إنجلترا":"england","ويلز":"wales","أيرلندا":"ireland",
+  "بريطانيا":"britain","أمريكا":"usa","كندا":"canada","أستراليا":"australia",
+  "نيوزيلندا":"nz","الهند":"india","باكستان":"pakistan","بنغلاديش":"bangladesh",
+  "الفلبين":"ph","إندونيسيا":"indonesia","ماليزيا":"malaysia","الصين":"china",
+  "اليابان":"japan","كوريا الجنوبية":"korea","نيجيريا":"nigeria","كينيا":"kenya",
+  "جنوب أفريقيا":"safrica","غانا":"ghana","فرنسا":"france","ألمانيا":"germany",
+  "إسبانيا":"spain","إيطاليا":"italy","هولندا":"netherlands","السويد":"sweden",
+  "النرويج":"norway","روسيا":"russia","تركيا":"turkey","البرازيل":"brazil",
+  "المكسيك":"mexico",
+  "بولندا":"poland","البرتغال":"portugal","اليونان":"greece","بلجيكا":"belgium",
+  "تايلاند":"thailand","الأرجنتين":"argentina","إثيوبيا":"ethiopia",
+  "سويسرا":"switzerland","النمسا":"austria","الدنمارك":"denmark","فنلندا":"finland",
+  "أوكرانيا":"ukraine","رومانيا":"romania","المجر":"hungary","التشيك":"czech",
+  "كولومبيا":"colombia","تشيلي":"chile","فيتنام":"vietnam","سنغافورة":"singapore",
+  "سريلانكا":"srilanka","نيبال":"nepal","تنزانيا":"tanzania","أوغندا":"uganda",
+  "كازاخستان":"kazakhstan",
+  "بيرو":"peru","فنزويلا":"venezuela","الإكوادور":"ecuador","بوليفيا":"bolivia",
+  "باراغواي":"paraguay","أوروغواي":"uruguay","بنما":"panama","كوستاريكا":"costarica",
+  "نيكاراغوا":"nicaragua","هندوراس":"honduras","السلفادور":"salvador","غواتيمالا":"guatemala",
+  "كوبا":"cuba","الدومينيكان":"dominican"
+};
+const NAME_FILE = {
+  "صوفيا":"name_sofia.mp3","sophia":"name_sofia.mp3","sofia":"name_sofia.mp3",
+  "سارة":"name_sara.mp3","sara":"name_sara.mp3","sarah":"name_sara.mp3",
+  "عمر":"name_omar.mp3","omar":"name_omar.mp3",
+  "مايا":"name_maya.mp3","maya":"name_maya.mp3",
+  "نور":"name_noor.mp3","noor":"name_noor.mp3","nur":"name_noor.mp3",
+  "أحمد":"name_ahmad.mp3","احمد":"name_ahmad.mp3","ahmad":"name_ahmad.mp3","ahmed":"name_ahmad.mp3"
+};
+function clip(id){ return CLIP[id] ? Npath + CLIP[id] : null; }
+function hasClip(id){ return !!CLIP[id]; }
+const NAT_CLIP = {};
+Object.keys(NAT_ID).forEach(function(plain){
+  const id=NAT_ID[plain];
+  NAT_CLIP[plain]={co:"co_"+id+".mp3", m:"nm_"+id+".mp3", f:"nf_"+id+".mp3"};
+});
+let nativePlayer=null, playToken=0;
+function playFirst(urls, onend){
+  let k=0;
+  function tryOne(){
+    if(k>=urls.length){ if(onend) onend(); return; }
+    const a=new Audio(urls[k++]);
+    nativePlayer=a;
+    let started=false;
+    a.addEventListener("error", tryOne);
+    a.addEventListener("ended", function(){ if(onend) onend(); });
+    a.play().then(function(){ started=true; }).catch(tryOne);
+  }
+  tryOne();
+}
+function playClips(urls, onend){
+  const list=(urls||[]).filter(Boolean);
+  const my=++playToken;
+  if(!list.length){ if(onend) onend(); return; }
+  if(nativePlayer){ try{ nativePlayer.pause(); }catch(e){} }
+  try{ speechSynthesis.cancel(); }catch(e){}
+  let i=0;
+  function next(){
+    if(my!==playToken) return;
+    if(i>=list.length){ if(onend) onend(); return; }
+    const item=list[i++];
+    let done=false;
+    function go(){ if(done||my!==playToken) return; done=true; next(); }
+    if(item && item.any){
+      playFirst(item.any, go);
+      return;
+    }
+    const a=new Audio(item);
+    nativePlayer=a;
+    a.addEventListener("ended", go);
+    a.addEventListener("error", go);
+    a.play().catch(go);
+  }
+  next();
+}
+function listClips(items){
+  const urls=[];
+  (items||[]).forEach(function(w, idx){
+    if(hasClip(w)) urls.push(clip(w));
+    if(idx<items.length-1 && items[idx+1] && items[idx+1]!=="و" && w!=="و" && hasClip("و") && !String(w).match(/هي|في|الصف|من|وجنسيتي|اسمي|عمري|أحب/)){
+      /* insert و between similar nouns only when caller already put و */
+    }
+  });
+  return urls;
+}
+const LETTER = {
+  "ا":"let_alif.mp3","أ":"let_hamza.mp3","إ":"let_hamza.mp3","آ":"let_alif.mp3","ء":"let_hamza.mp3",
+  "ب":"let_ba.mp3","ت":"let_ta.mp3","ث":"let_tha.mp3","ج":"let_jeem.mp3","ح":"let_ha.mp3","خ":"let_kha.mp3",
+  "د":"let_dal.mp3","ذ":"let_thal.mp3","ر":"let_ra.mp3","ز":"let_zay.mp3","س":"let_seen.mp3","ش":"let_sheen.mp3",
+  "ص":"let_sad.mp3","ض":"let_dad.mp3","ط":"let_taa.mp3","ظ":"let_zah.mp3","ع":"let_ain.mp3","غ":"let_ghain.mp3",
+  "ف":"let_fa.mp3","ق":"let_qaf.mp3","ك":"let_kaf.mp3","ل":"let_lam.mp3","م":"let_meem.mp3","ن":"let_noon.mp3",
+  "ه":"let_haa.mp3","ة":"let_teh.mp3","و":"let_waw.mp3","ي":"let_ya.mp3","ى":"let_ya.mp3"
+};
+function findNation(){
+  let v=profile.answers.nation;
+  if(Array.isArray(v)) v=v[0];
+  v=String(v||"").trim();
+  const id=profile.answers.nationId;
+  return NATIONS.filter(function(n){
+    return n.plain===v || NAT_ID[n.plain]===id || (n.en||"").toLowerCase()===v.toLowerCase();
+  })[0] || null;
+}
+function nameClips(){
+  const out=[clip("اسمي")];
+  const raw=String(profile.name||"").trim();
+  const key=raw.toLowerCase();
+  const ready=NAME_FILE[key]||NAME_FILE[raw];
+  if(ready){ out.push(Npath+ready); return out; }
+  raw.split("").forEach(function(ch){
+    if(LETTER[ch]) out.push(Npath+LETTER[ch]);
+  });
+  return out.filter(Boolean);
+}
+function clipsForLine(it){
+  const a=profile.answers;
+  if(it.q==="ما اسمك؟") return nameClips();
+  if(it.q==="كم عمرك؟") return [clip("عمري"), clip(String(a.age)), clip("عاما")].filter(Boolean);
+  if(it.q==="من أين أنت؟"){
+    const n=findNation();
+    const g=(profile.gender==="m")?"m":"f";
+    const plain=n?n.plain:String(a.nation||"").trim();
+    const pack=NAT_CLIP[plain]||{};
+    const id=(n && NAT_ID[n.plain]) || profile.answers.nationId || NAT_ID[plain] || "";
+    const full=id ? Npath+"full_"+id+"_"+(pack[g]||pack.f?g:"f")+".mp3" : null;
+    /* جملة كاملة إن وُجدت، وإلا مقاطع: أنا من + البلد + وجنسيتي + الصفة */
+    if(id && (pack.co||pack.f||pack.m)){
+      return [clip("أنا من"), pack.co?Npath+pack.co:null, clip("وجنسيتي"), (pack[g]||pack.f)?Npath+(pack[g]||pack.f):null].filter(Boolean);
+    }
+    return [clip("أنا من"), pack.co?Npath+pack.co:null, clip("وجنسيتي"), (pack[g]||pack.f)?Npath+(pack[g]||pack.f):null].filter(Boolean);
+  }
+  if(it.q==="أين تعيش؟") return [Npath+"live_dubai.mp3"];
+  if(it.q==="في أي صف أنت؟") return [clip("أنا في الصف"), hasClip(a.grade)?clip(a.grade):null].filter(Boolean);
+  if(it.q.indexOf("لون")>=0){
+    const cols=asList(a.color);
+    if(cols.length>1) return [clip("ألواني المفضلة هي")].concat(joinClip(cols));
+    return [clip("لوني المفضل")].concat(hasClip(cols[0])?[clip(cols[0])]:[]);
+  }
+  if(it.q==="ماذا تحب؟") return [clip("أحب")].concat(joinClip(asList(a.like)));
+  if(it.q==="ماذا لا تحب؟") return [clip("لا أحب")].concat(joinClip(asList(a.dislike)));
+  if(it.q.indexOf("هواي")>=0){
+    const hob=asList(a.hobby);
+    if(hob.length>1) return [clip("هواياتي المفضلة هي")].concat(joinClip(hob));
+    return [clip("هوايتي المفضلة هي")].concat(joinClip(hob));
+  }
+  if(it.q.indexOf("مواد")>=0){
+    const subs=asList(a.subject);
+    if(subs.length>1) return [clip("موادي المفضلة هي")].concat(joinClip(subs));
+    return [clip("مادتي المفضلة")].concat(joinClip(subs));
+  }
+  if(it.q.indexOf("عائلت")>=0){
+    return [clip("عائلتي"), clip(a.family)].filter(Boolean);
+  }
+  if(it.q.indexOf("قدم")>=0 || it.q==="قدم نفسك"){
+    return [clip("السلام عليكم")].concat(clipsAllSentences());
+  }
+  return CLIP[it.q] ? [clip(it.q)] : [];
+}
+function clipsAllSentences(){
+  const all=[];
+  lines().forEach(function(ln){
+    const part=clipsForLine(ln);
+    if(part && part.length) all.push.apply(all, part);
+  });
+  return all;
+}
+function joinClip(arr){
+  const out=[];
+  arr.forEach(function(w,i){
+    if(hasClip(w)) out.push(clip(w));
+    if(i<arr.length-1) out.push(clip("و"));
+  });
+  return out;
+}
+function speakNow(text, onend){
+  if(CLIP[text]) { playClips([clip(text)], onend); return; }
+  try { playClips(clipsForLine(item()), onend); }
+  catch(e){ if(onend) onend(); }
+}
+
+function playQuestAudio(){
+  const map={age:"q_age.mp3",nation:"q_from.mp3",city:"q_live.mp3",grade:"q_grade.mp3",color:"q_color.mp3",like:"q_like.mp3",dislike:"q_dislike.mp3",hobby:"q_hobby.mp3",subject:"q_subject.mp3",family:"q_family.mp3"};
+  const f=map[Q[qi].key];
+  if(f) playClips([Npath+f]);
+}
+function saveName(){
+  const n=document.getElementById("nameIn").value.trim();
+  if(!n){ alert("اكتب اسمك / Type your name"); return; }
+  profile.name=n; profile.answers.city="دبي"; save(); qi=0; selected=[]; go("s-quest");
+}
+function renderQuest(){
+  const q=Q[qi];
+  document.getElementById("qBar").style.width=(qi/Q.length*100)+"%";
+  document.getElementById("qTitle").textContent=q.title;
+  document.getElementById("qEn").textContent=q.en;
+  document.getElementById("qLead").textContent=profile.name+"، اختر الإجابة الصحيحة عنك.";
+  document.getElementById("multiHint").style.display=q.multi?"block":"none";
+  const box=document.getElementById("pics"); box.innerHTML="";
+  const filterEl=document.getElementById("filter");
+  filterEl.style.display = q.type==="nation" ? "block" : "none";
+  let opts;
+  if(q.type==="nation"){
+    const f=(filterEl.value||"").trim();
+    opts=NATIONS.filter(function(n){
+      return !f || n.plain.indexOf(f)>=0 || n.ar.indexOf(f)>=0 || n.en.toLowerCase().indexOf(f.toLowerCase())>=0;
+    }).map(function(n){
+      return {v:n.plain, id:NAT_ID[n.plain], html:flagHTML(n.c), en:n.en, forms:(profile.gender==="m"?n.m.replace(/[ًٌٍَُِّْ]/g,""):n.f.replace(/[ًٌٍَُِّْ]/g,""))+" — "+n.en, nation:true};
+    });
+  } else opts=q.options;
+  const cur = q.multi ? selected : selected;
+  opts.forEach(function(opt){
+    const on = q.multi ? selected.indexOf(opt.v)>=0 : selected[0]===opt.v;
+    const b=document.createElement("button");
+    b.type="button"; b.className="pic"+(opt.nation?" nat-card":"")+(on?" on":"");
+    b.innerHTML='<div class="art">'+opt.html+'</div><b>'+opt.v+'</b>'+(opt.en?'<span class="nat-en">'+opt.en+'</span>':'')+(opt.forms?'<span class="nat-forms">'+opt.forms+'</span>':'');
+    b.onclick=function(){
+      if(q.multi){
+        const i=selected.indexOf(opt.v);
+        if(i>=0) selected.splice(i,1); else selected.push(opt.v);
+      } else { selected=[opt.v]; selectedId=opt.id||NAT_ID[opt.v]||""; }
+      renderQuest();
+    };
+    box.appendChild(b);
+  });
+}
+function saveQuest(){
+  const q=Q[qi];
+  const extra=document.getElementById("custom").value.trim();
+  let val;
+  if(q.multi){
+    val = selected.slice();
+    if(extra) val.push(extra);
+    if(!val.length){ alert("اختر صورة واحدة أو أكثر"); return; }
+  } else {
+    val = extra || selected[0];
+    if(!val){ alert("اختر صورة أو اكتب"); return; }
+  }
+  profile.answers[q.key]=val;
+  if(q.key==="nation") profile.answers.nationId = selectedId || NAT_ID[val] || "";
+  selected=[]; document.getElementById("custom").value=""; document.getElementById("filter").value="";
+  qi++; save();
+  if(qi>=Q.length) go("s-map"); else renderQuest();
+}
+function renderMap(){
+  document.getElementById("mapName").textContent=profile.name;
+  const a=profile.answers;
+  document.getElementById("you").innerHTML="<b>"+profile.name+"</b> · "+a.age+" · من "+(a.nation||"")+" · جنسيتي "+natWord()+" · أعيش في دبي<br>أحب "+asList(a.like).join(" و ")+" · هواياتي "+asList(a.hobby).join(" و ");
+  document.getElementById("map").innerHTML=STAGES.map(function(s,i){
+    const lock=i>=(profile.unlocked||1);
+    return '<div class="mission '+(lock?"lock":"")+'" onclick="'+(lock?"":"openS("+i+")")+'"><div class="badge">'+(i+1)+'</div><div><b>'+s.title+'</b></div><div>'+(lock?"🔒":"▶")+'</div></div>';
+  }).join("");
+}
+function openS(i){ si=i; ti=0; heard=false; go("s-train"); renderTrain(); }
+function item(){ return STAGES[si].id==="free" ? full() : lines()[ti]; }
+function renderTrain(){
+  const st=STAGES[si], it=item(), n=st.id==="free"?1:lines().length;
+  heard=false; document.getElementById("recBtn").disabled=true;
+  document.getElementById("tBar").style.width=(ti/n*100)+"%";
+  document.getElementById("tTitle").textContent=st.title+" — "+profile.name;
+  document.getElementById("tQ").textContent=(st.id==="answer"||st.id==="keys")?it.q:it.ar;
+  document.getElementById("tEn").textContent=(st.id==="answer"||st.id==="keys")?it.qEn:it.en;
+  document.getElementById("tModel").textContent=it.ar;
+  document.getElementById("tModelEn").textContent=it.en;
+  setPhase(1);
+  document.getElementById("target").innerHTML=""; document.getElementById("pool").innerHTML="";
+  if(st.id==="build"){
+    it.words.forEach(function(){ const s=document.createElement("div"); s.className="tile slot"; s.textContent="…"; document.getElementById("target").appendChild(s); });
+    it.words.slice().sort(function(){return Math.random()-.5}).forEach(function(w){
+      const t=document.createElement("div"); t.className="tile"; t.textContent=w;
+      t.onclick=function(){ const sl=document.querySelector("#target .slot"); if(!sl)return; sl.textContent=w; sl.classList.remove("slot"); t.remove(); };
+      document.getElementById("pool").appendChild(t);
+    });
+  }
+  if(st.id==="keys"){
+    it.keys.forEach(function(k){ const s=document.createElement("div"); s.className="tile"; s.textContent=k; document.getElementById("pool").appendChild(s); });
+  }
+  playModel();
+}
+function setPhase(n){ [1,2,3].forEach(function(i){ document.getElementById("ph"+i).className="ph"+(i===n?" now":""); }); }
+function playModel(){
+  const st=STAGES[si], it=item();
+  setPhase(1);
+  document.getElementById("status").textContent="تستمع إلى ناطق عربي واضح...";
+  const urls = (st.id==="answer"||st.id==="keys")
+    ? (CLIP[it.q] ? [clip(it.q)] : clipsForLine(it))
+    : clipsForLine(it);
+  playClips(urls, function(){
+    heard=true;
+    document.getElementById("recBtn").disabled=false;
+    setPhase(2);
+    document.getElementById("status").textContent="الآن سَجِّلِ الجُمْلَةَ بِصَوْتِكَ.";
+  });
+}
+function nextItem(){
+  if(STAGES[si].id==="free"){ profile.done.free=true; profile.unlocked=6; save(); go("s-map"); return; }
+  ti++;
+  if(ti>=lines().length){
+    profile.done[STAGES[si].id]=true;
+    profile.unlocked=Math.min(6, Math.max(profile.unlocked||1, si+2));
+    save(); go("s-map"); return;
+  }
+  renderTrain();
+}
+let recCheck=null, heardText="";
+function normAr(s){
+  return String(s||"")
+    .replace(/[ًٌٍَُِّْـ؟!.,،]/g,"")
+    .replace(/[أإآ]/g,"ا")
+    .replace(/ة/g,"ه")
+    .replace(/ى/g,"ي")
+    .replace(/\s+/g," ")
+    .trim();
+}
+const ROMAN = {
+  "11":"ahada ashar","12":"ithna ashar","13":"thalathata ashar","14":"arba'ata ashar",
+  "15":"khamsata ashar","16":"sittata ashar","17":"sab'ata ashar","18":"thamanayata ashar",
+  "أحد":"ahada","احد":"ahada","اثنا":"ithna","ثلاثة":"thalathata","أربعة":"arba'ata",
+  "خمسة":"khamsata","ستة":"sittata","سبعة":"sab'ata","ثمانية":"thamanayata","عشر":"ashar",
+  "أنا":"ana","انا":"ana","من":"min","وجنسيتي":"wa-jinsiyyati","جنسيتي":"jinsiyyati",
+  "اسمي":"ismi","عمري":"umri","عاما":"aaman","عامًا":"aaman",
+  "أعيش":"a'eesh","أسكن":"askunu","في":"fi","دبي":"Dubai",
+  "أحب":"uhibbu","لا":"la","هواياتي":"hiwayati","هوايتي":"hiwayati",
+  "المفضلة":"al-mufaddala","هي":"hiya","موادي":"mawaddi","مادتي":"maddati",
+  "ألواني":"alwani","لوني":"lawni","المفضل":"al-mufaddal","عائلتي":"ailati",
+  "الصف":"as-saff","السادس":"as-sadis","السابع":"as-sabi","الثامن":"ath-thamin",
+  "التاسع":"at-tasi","العاشر":"al-ashir","السلام":"as-salamu","عليكم":"alaykum"
+};
+const LETTER_LAT = {
+  "ا":"a","أ":"a","إ":"i","آ":"aa","ء":"","ب":"b","ت":"t","ث":"th","ج":"j","ح":"h","خ":"kh",
+  "د":"d","ذ":"dh","ر":"r","ز":"z","س":"s","ش":"sh","ص":"s","ض":"d","ط":"t","ظ":"z",
+  "ع":"","غ":"gh","ف":"f","ق":"q","ك":"k","ل":"l","م":"m","ن":"n","ه":"h","ة":"a",
+  "و":"u","ي":"i","ى":"a"
+};
+function romanWord(w){
+  const key=String(w||"").replace(/[ًٌٍَُِّْـ]/g,"").replace(/[٠-٩]/g, function(d){return "٠١٢٣٤٥٦٧٨٩".indexOf(d);});
+  if(ROMAN[key]) return ROMAN[key];
+  if(/^\d+$/.test(key) && ROMAN[key]) return ROMAN[key];
+  return key.split("").map(function(ch){return LETTER_LAT[ch]!==undefined?LETTER_LAT[ch]:ch;}).join("");
+}
+function romanize(text){
+  return String(text||"").replace(/[؟!.،,.]/g," ").split(/\s+/).filter(Boolean).map(romanWord).join(" ");
+}
+function giveFeedback(said, expected){
+  const box=document.getElementById("feedback");
+  box.style.display="block";
+  const exp=normAr(expected);
+  const got=normAr(said);
+  const need=exp.split(" ").filter(function(w){return w.length>1;});
+  const have=got.split(" ");
+  const missing=need.filter(function(w){ return have.indexOf(w)<0 && have.join(" ").indexOf(w)<0; });
+  const hit=need.length? Math.round((need.length-missing.length)/need.length*100) : 0;
+  const sayThis=romanize(expected);
+  const youSaid=got?romanize(said):"(unclear)";
+  const missLat=missing.slice(0,8).map(romanWord).join(" · ");
+  const notes=[];
+  const expW=exp.split(" ").filter(Boolean);
+  const gotW=got.split(" ").filter(Boolean);
+  for(let i=0;i<expW.length;i++){
+    const right=romanWord(expW[i]);
+    const heard=gotW[i]?romanWord(gotW[i]):"";
+    if(!heard) notes.push("Add: <b dir='ltr'>"+right+"</b>");
+    else if(normAr(expW[i])!==normAr(gotW[i])) notes.push("Say <b dir='ltr'>"+right+"</b>, not <span dir='ltr'>"+heard+"</span>");
+  }
+  if(!got){
+    box.innerHTML="<b>Feedback</b><br>I could not hear your sentence clearly. The correct pronunciation is:<br><b dir='ltr' style='display:block;font-size:1.12rem;margin:8px 0'>"+sayThis+"</b>";
+    return;
+  }
+  if(hit>=75 && notes.length===0){
+    box.innerHTML="<b>Well done</b><br>You said: <span dir='ltr'>"+youSaid+"</span><br>Correct: <span dir='ltr'>"+sayThis+"</span>";
+  } else {
+    box.innerHTML="<b>Pronunciation check</b><br>You said: <span dir='ltr'>"+youSaid+"</span><br>Correct: <b dir='ltr'>"+sayThis+"</b>"+(notes.length?"<br>"+notes.slice(0,8).join("<br>"):"");
+  }
+}
+async function startRec(){
+  if(!heard){ alert("اسمع الجملة أولًا"); return; }
+  setPhase(3);
+  document.getElementById("feedback").style.display="none";
+  heardText="";
+  try{
+    const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+    chunks=[]; rec=new MediaRecorder(stream);
+    rec.ondataavailable=function(e){if(e.data.size)chunks.push(e.data)};
+    rec.onstop=function(){
+      const a=document.getElementById("playback");
+      a.src=URL.createObjectURL(new Blob(chunks,{type:"audio/webm"})); a.style.display="block";
+      stream.getTracks().forEach(function(t){t.stop()});
+      if(recCheck){ try{ recCheck.stop(); }catch(e){} recCheck=null; }
+      const expected=(item()&&item().ar)||"";
+      giveFeedback(heardText, expected);
+      document.getElementById("status").textContent="Read the English feedback, then record again or tap Next.";
+    };
+    rec.start();
+    const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+    if(SR){
+      recCheck=new SR();
+      recCheck.lang="ar-SA";
+      recCheck.continuous=true;
+      recCheck.interimResults=true;
+      recCheck.onresult=function(ev){
+        let t="";
+        for(let i=0;i<ev.results.length;i++) t+=ev.results[i][0].transcript+" ";
+        heardText=t.trim();
+      };
+      try{ recCheck.start(); }catch(e){}
+    }
+    document.getElementById("status").textContent="تكلم الآن بالفصحى...";
+  }catch(e){ alert("اسمح بالميكروفون"); }
+}
+function stopRec(){ if(rec && rec.state==="recording") rec.stop(); }
+
+if(window.speechSynthesis){
+  speechSynthesis.getVoices();
+  speechSynthesis.onvoiceschanged=function(){ speechSynthesis.getVoices(); };
+}
+save();
+document.getElementById("nameIn").value=profile.name||"";
+setG(profile.gender||"f");
+</script>
+</body>
+</html>
