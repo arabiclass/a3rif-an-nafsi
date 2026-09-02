@@ -1,2 +1,5 @@
-# a3rif-an-nafsi
-أعرف عن نفسي — MSA self-introduction speaking game
+# أعرف عن نفسي
+
+MSA self-introduction speaking game.
+
+Site: https://arabiclass.github.io/a3rif-an-nafsi/
